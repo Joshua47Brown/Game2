@@ -7,6 +7,7 @@ TagManager:
   - Bullet
   - Enemy
   - Checkpoint
+  - Ground Collision
   layers:
   - Default
   - TransparentFX
@@ -21,7 +22,7 @@ TagManager:
   - Enemy
   - Bullet
   - Checkpoint
-  - 
+  - Ground Collision
   - 
   - 
   - 

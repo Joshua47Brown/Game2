@@ -60,10 +60,16 @@ public class BulletController : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other) // Handles the bullet's collsions.
     {
-        if (other.tag != "Bullet" || other.tag != "Player" || other.tag != "Checkpoint")
+        if (other.tag != "Bullet" || other.tag != "Player" || other.tag != "Checkpoint" || other.tag != "Ground Collision")
         {
+            if (other.tag == "Ground Collision")
+            {
+                Debug.Log("hitting ground coll");
+            }
+            Debug.Log("Ehhhhhhhh");
             if (other.tag == "Enemy")
             {
+                Debug.Log("hitting enemy");
                 other.GetComponent<EnemyHealthManager>().GiveDamage(damageToGive);
                 //camCtrl.ShakeCamera(0.3f,0.4f);
                 camCtrl.StopCoroutine("ShakeCamera");
@@ -73,11 +79,13 @@ public class BulletController : MonoBehaviour
             }
             else
             {
-                if (other.tag != "Checkpoint")
+                if (other.tag != "Ground Collision" && other.tag != "Checkpoint")
                 {
                     Instantiate(bulletParticle, gameObject.transform.position, gameObject.transform.rotation);
                     Destroy(gameObject);
-                }                
+                }
+                
+                
             }
         }
     }
