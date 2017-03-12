@@ -19,17 +19,21 @@ public class BulletController : MonoBehaviour
     public GameObject bulletParticle;
 
     public int damageToGive;
+
+    //PlayerHealthManager playerHealthManager;
+
     
 
-    void Start ()
+    void Start()
     {
+        //playerHealthManager = FindObjectOfType<PlayerHealthManager>();
         camCtrl = FindObjectOfType<CameraController>();
         spriteRend = GetComponent<SpriteRenderer>();
         defaultSprite = spriteRend.sprite;
         player = FindObjectOfType<Player>();
-        GetComponent<Rigidbody2D>().rotation = Random.Range(-5, 5);    
+        GetComponent<Rigidbody2D>().rotation = Random.Range(-5, 5);
 
-        if (player.transform.localScale.x < 0) // Flips the bullets relative to player.
+        if (player.transform.localScale.x < 0) // Flips the bullets relative to player. 
         {
             speed = -speed;
             transform.localScale = new Vector3(-1, 1, 1);
@@ -40,8 +44,13 @@ public class BulletController : MonoBehaviour
 	}
 	
 
-	void Update ()
+	void Update()
     {
+        if (player == null)
+        {
+            player = FindObjectOfType<Player>();
+        }
+
         GetComponent<Rigidbody2D>().velocity = transform.right * speed;
         Destroy(gameObject, 3.0f);
     }
@@ -71,11 +80,7 @@ public class BulletController : MonoBehaviour
             {
                 Debug.Log("hitting enemy");
                 other.GetComponent<EnemyHealthManager>().GiveDamage(damageToGive);
-                //camCtrl.ShakeCamera(0.3f,0.4f);
-                camCtrl.StopCoroutine("ShakeCamera");
-                //camCtrl.StartCoroutine(camCtrl.ShakeCamera(0.1f,0.7f)); // Screen shake.
-                //Instantiate(deathParticle, other.transform.position, other.transform.rotation);
-                //Destroy(other.transform.root.gameObject);             
+                camCtrl.StopCoroutine("ShakeCamera");     
             }
             else
             {

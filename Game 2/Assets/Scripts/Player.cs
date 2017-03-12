@@ -26,7 +26,6 @@ public class Player : MonoBehaviour
     CameraController camCtrl;
     Controller2D controller;
     PauseMenu pauseMen;
-    Player player;
 
 
     void Start()

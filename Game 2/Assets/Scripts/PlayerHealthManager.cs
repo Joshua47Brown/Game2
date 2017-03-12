@@ -9,43 +9,36 @@ public class PlayerHealthManager : MonoBehaviour
     public int maxPlayerHealth;
     public bool isDead;
 
-
     LevelManager levelmanager;
     public Text healthText;
 
 
-    // Use this for initialization
-    void Start ()
+    void Start()
     {
         isDead = false;
         levelmanager = FindObjectOfType<LevelManager>();
         playerHealth = maxPlayerHealth;
-        
 	}
 
-	// Update is called once per frame
-	void Update ()
-    {
-        healthText.text = "" + playerHealth;
 
-        if (playerHealth <= 0 && !isDead)
+	void Update()
+    {
+        healthText.text = "" + playerHealth;    // Updates the player health GUI.
+
+        if (playerHealth <= 0 && !isDead)   // If the players health is below zero, this respawns the player.
         {
             isDead = true;
             playerHealth = 0;
-            levelmanager.RespawnPlayer();
-            
-        }
-        
-        
+            levelmanager.RespawnPlayer();  
+        }   
 	}
 
-    public static void DamagePlayer(int damageToGive)
+    public static void DamagePlayer(int damageToGive)   // Receives damage from external sources.
     {
-        playerHealth -= damageToGive;
-        
+        playerHealth -= damageToGive;      
     }
 
-    public void FullHealth()
+    public void FullHealth()    // Refills the players health, called when respawning.
     {
         playerHealth = maxPlayerHealth;
     }

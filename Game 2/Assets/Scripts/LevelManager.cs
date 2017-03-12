@@ -9,11 +9,21 @@ public class LevelManager : MonoBehaviour
     public GameObject currentCheckPoint;
     Player player;
     public PlayerHealthManager playerHealthManager;
+    //BulletController bulletController;
 
-    void Start ()
+    void Start()
     {
+        //bulletController = FindObjectOfType<BulletController>();
         player = FindObjectOfType<Player>();
         playerHealthManager = FindObjectOfType<PlayerHealthManager>();
+    }
+
+    void Update()
+    {
+        if (player == null)
+        {
+            player = FindObjectOfType<Player>();
+        }
     }
 	
 
@@ -25,11 +35,10 @@ public class LevelManager : MonoBehaviour
     public IEnumerator RespawnPlayerCo()
     {
         player.gameObject.SetActive(false);
-        
         yield return new WaitForSeconds(respawnDelay);
         player.transform.position = currentCheckPoint.transform.position;
         Debug.Log("Player Respawned");
-        player.gameObject.SetActive(true);
+        player.gameObject.SetActive(true);   
         playerHealthManager.FullHealth();
         playerHealthManager.isDead = false;
     }

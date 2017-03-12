@@ -13,33 +13,38 @@ public class DamagePlayerOnContact : MonoBehaviour
     public SpriteRenderer spriteRend;
     public Color normalColor;
     public Color hitColor;
+    PlayerHealthManager playerHealthManager;
 
-    // Use this for initialization
-    void Start ()
+    
+
+
+    void Start()
     {
-        FindObjectOfType<SpriteRenderer>();
+        playerHealthManager = FindObjectOfType<PlayerHealthManager>();
         player = FindObjectOfType<Player>();
-
-        spriteRend = player.GetComponent<SpriteRenderer>();
+        spriteRend = FindObjectOfType<SpriteRenderer>();
     }
-	
-	// Update is called once per frame
-	void Update ()
-    {
 
+
+	void Update()
+    {
+        if(player == null)  // If the player becomes null, this finds it again.
+        {
+            Debug.Log("player is null on damageoncontact");
+            player = FindObjectOfType<Player>();
+        }
 	}
 
     void OnTriggerStay2D(Collider2D other)
     {
-        if (other.tag == "Player" && isTakingDamage == false) //getting called too often
+        if (other.tag == "Player" && isTakingDamage == false && playerHealthManager.isDead == false)    // Getting called too often.
         {
             StartCoroutine(HitDelayCo());
             PlayerHealthManager.DamagePlayer(damageToGive);
-
         }
     }
 
-    public IEnumerator HitDelayCo()
+    public IEnumerator HitDelayCo() 
     {
         StartCoroutine(FlickerCo());
         isTakingDamage = true;
@@ -49,8 +54,8 @@ public class DamagePlayerOnContact : MonoBehaviour
 
     public IEnumerator FlickerCo()
     {
-        spriteRend.color = hitColor;
+        player.GetComponent<SpriteRenderer>().color = hitColor;
         yield return new WaitForSeconds(0.1f);
-        spriteRend.color = normalColor;
+        player.GetComponent<SpriteRenderer>().color = normalColor;
     }
 }

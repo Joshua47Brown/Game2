@@ -42,7 +42,6 @@ public class CameraController : MonoBehaviour
 
     void Update()
     {
-        
         if (shakeTimer >= 0)
         {
             Vector2 ShakePos = Random.insideUnitCircle * shakeAmount;
@@ -51,7 +50,7 @@ public class CameraController : MonoBehaviour
         }
     }
 
-    public IEnumerator ShakeCamera(float shakePower, float ShakeDur)
+    public IEnumerator ShakeCamera(float shakePower, float ShakeDur)    // Call this anywhere to shake the camera.
     {
         shakeAmount = shakePower;
         shakeTimer = ShakeDur;

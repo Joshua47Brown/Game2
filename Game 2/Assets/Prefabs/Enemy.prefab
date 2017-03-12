@@ -163,9 +163,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69a593e01369f704abf8af40f6f9bdfb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyHealth: 15
+  enemyHealth: 4
   deathEffect: {fileID: 1981371877677400, guid: c6fca1350bbb5a54391a0338ad4714c0,
     type: 2}
+  whiteFlash: {fileID: 2100000, guid: 2f52bf5d036931541b4d9d44d74ee253, type: 2}
+  defaultMaterial: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  flashTime: 0.05
 --- !u!114 &114570575009995156
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -177,7 +180,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 950935fc75da16c48bf237a998c04a59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 7
+  moveSpeed: 12
   moveRight: 0
   touchingWall: 0
   wallCheck: {fileID: 4696778016436282}

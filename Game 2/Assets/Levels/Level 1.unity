@@ -1630,7 +1630,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 1213653397058712, guid: ef291445d561f914f911d77f8d570fd3, type: 2}
-  enemySpawnRate: 5
+  enemySpawnRate: 1
   enemySpawnRateTimer: 0
 --- !u!1 &1722159764
 GameObject:
@@ -1989,7 +1989,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1928492811}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 10.99, y: 3.83, z: 0}
+  m_LocalPosition: {x: 12.63, y: 3.72, z: 0}
   m_LocalScale: {x: 5.80569, y: 0.32634, z: 1}
   m_Children: []
   m_Father: {fileID: 1367017449}

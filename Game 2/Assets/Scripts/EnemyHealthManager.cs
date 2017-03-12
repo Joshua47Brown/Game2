@@ -7,14 +7,17 @@ public class EnemyHealthManager : MonoBehaviour
 
     public int enemyHealth;
     public GameObject deathEffect;
+    public Material whiteFlash;
+    public Material defaultMaterial;
+    public float flashTime;
 
-	void Start ()
+	void Start()
     {
 		
 	}
 	
 
-	void Update ()
+	void Update()
     {
         if (enemyHealth <= 0)
         {
@@ -25,6 +28,14 @@ public class EnemyHealthManager : MonoBehaviour
 
     public void GiveDamage(int damageToGive)
     {
+        StartCoroutine(EnemyFlash());
         enemyHealth -= damageToGive;
+    }
+
+    public IEnumerator EnemyFlash()
+    {
+        gameObject.GetComponent<SpriteRenderer>().material = whiteFlash;
+        yield return new WaitForSeconds(flashTime);
+        gameObject.GetComponent<SpriteRenderer>().material = defaultMaterial;
     }
 }

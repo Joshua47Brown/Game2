@@ -21,11 +21,13 @@ public class EnemyBehaviour : MonoBehaviour
 
         if (moveRight)
         {
+            gameObject.GetComponent<SpriteRenderer>().flipX = true;
             transform.localScale = new Vector3(-1, 1, 1);
             GetComponent<Rigidbody2D>().velocity = new Vector2(moveSpeed, GetComponent<Rigidbody2D>().velocity.y);
         }
         else
         {
+            gameObject.GetComponent<SpriteRenderer>().flipX = false;
             transform.localScale = new Vector3(1, 1, 1);
             GetComponent<Rigidbody2D>().velocity = new Vector2(-moveSpeed, GetComponent<Rigidbody2D>().velocity.y);
         }
