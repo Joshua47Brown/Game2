@@ -34,10 +34,12 @@ public class LevelManager : MonoBehaviour
 
     public IEnumerator RespawnPlayerCo()
     {
+        Physics2D.IgnoreLayerCollision(9, 10, false);
         player.gameObject.SetActive(false);
         yield return new WaitForSeconds(respawnDelay);
         player.transform.position = currentCheckPoint.transform.position;
         Debug.Log("Player Respawned");
+        Physics2D.IgnoreLayerCollision(9, 10, false);
         player.gameObject.SetActive(true);   
         playerHealthManager.FullHealth();
         playerHealthManager.isDead = false;

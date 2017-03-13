@@ -887,7 +887,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69a4b020023367d4194d400f3238dcc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxPlayerHealth: 5
+  maxPlayerHealth: 50
   isDead: 1
   healthText: {fileID: 617779102}
 --- !u!114 &617779102
@@ -1630,7 +1630,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 1213653397058712, guid: ef291445d561f914f911d77f8d570fd3, type: 2}
-  enemySpawnRate: 1
+  enemySpawnRate: 4
   enemySpawnRateTimer: 0
 --- !u!1 &1722159764
 GameObject:
