@@ -19,12 +19,12 @@ public class Controller2D : MonoBehaviour
     RaycastOrigins raycastOrigins;
     public CollisionInfo collisions;
 
+
     void Start()
     {
         collider = GetComponent<BoxCollider2D>();
         CalculateRaySpacing();
     }
-
 
 
     public void Move(Vector3 velocity)

@@ -20,13 +20,9 @@ public class BulletController : MonoBehaviour
 
     public int damageToGive;
 
-    //PlayerHealthManager playerHealthManager;
-
-    
 
     void Start()
     {
-        //playerHealthManager = FindObjectOfType<PlayerHealthManager>();
         camCtrl = FindObjectOfType<CameraController>();
         spriteRend = GetComponent<SpriteRenderer>();
         defaultSprite = spriteRend.sprite;
@@ -88,9 +84,7 @@ public class BulletController : MonoBehaviour
                 {
                     Instantiate(bulletParticle, gameObject.transform.position, gameObject.transform.rotation);
                     Destroy(gameObject);
-                }
-                
-                
+                } 
             }
         }
     }

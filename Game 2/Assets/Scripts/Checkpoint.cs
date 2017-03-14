@@ -5,7 +5,6 @@ using UnityEngine;
 public class Checkpoint : MonoBehaviour
 {
 
-
     public LevelManager levelManager;
 
 

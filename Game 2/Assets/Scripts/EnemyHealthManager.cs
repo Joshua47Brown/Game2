@@ -11,11 +11,6 @@ public class EnemyHealthManager : MonoBehaviour
     public Material defaultMaterial;
     public float flashTime;
 
-	void Start()
-    {
-		
-	}
-	
 
 	void Update()
     {

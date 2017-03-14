@@ -890,6 +890,9 @@ MonoBehaviour:
   maxPlayerHealth: 50
   isDead: 1
   healthText: {fileID: 617779102}
+  canPlayerTakeDamage: 0
+  PlayerNormalColor: {r: 1, g: 1, b: 1, a: 1}
+  PlayerHitColor: {r: 1, g: 0.21568626, b: 0.21568626, a: 1}
 --- !u!114 &617779102
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1630,7 +1633,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 1213653397058712, guid: ef291445d561f914f911d77f8d570fd3, type: 2}
-  enemySpawnRate: 4
+  enemySpawnRate: 2
   enemySpawnRateTimer: 0
 --- !u!1 &1722159764
 GameObject:

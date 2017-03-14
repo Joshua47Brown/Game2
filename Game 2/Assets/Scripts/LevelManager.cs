@@ -9,11 +9,9 @@ public class LevelManager : MonoBehaviour
     public GameObject currentCheckPoint;
     Player player;
     public PlayerHealthManager playerHealthManager;
-    //BulletController bulletController;
 
     void Start()
     {
-        //bulletController = FindObjectOfType<BulletController>();
         player = FindObjectOfType<Player>();
         playerHealthManager = FindObjectOfType<PlayerHealthManager>();
     }
