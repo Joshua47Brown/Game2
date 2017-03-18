@@ -10,9 +10,18 @@ public class EnemyHealthManager : MonoBehaviour
     public Material whiteFlash;
     public Material defaultMaterial;
     public float flashTime;
+    public CameraController camCtrl;
+    Player player;
 
 
-	void Update()
+    void Start()
+    {
+        player = FindObjectOfType<Player>();
+        camCtrl = FindObjectOfType<CameraController>();
+        
+    }
+
+    void Update()
     {
         if (enemyHealth <= 0)
         {

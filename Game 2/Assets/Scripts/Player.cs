@@ -22,10 +22,12 @@ public class Player : MonoBehaviour
     private float bulletStart = 0f;
     public float bulletFireRate;
     public bool isFiring;
+    public bool canMove;
 
     CameraController camCtrl;
     Controller2D controller;
     PauseMenu pauseMen;
+
 
 
     void Start()
@@ -57,7 +59,7 @@ public class Player : MonoBehaviour
             isFiring = true;
             Instantiate(bullet, firePoint.position, firePoint.rotation);
             bulletStart = Time.time;
-            camCtrl.StartCoroutine(camCtrl.ShakeCamera(0.025f, 0.5f));
+            camCtrl.StartCoroutine(camCtrl.ShakeCamera(0.025f, 1));
         }
 
         if (Input.GetKeyUp(KeyCode.Return))

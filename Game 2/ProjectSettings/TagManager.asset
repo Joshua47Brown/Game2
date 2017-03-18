@@ -8,6 +8,7 @@ TagManager:
   - Enemy
   - Checkpoint
   - Ground Collision
+  - NPC
   layers:
   - Default
   - TransparentFX
@@ -23,8 +24,8 @@ TagManager:
   - Bullet
   - Checkpoint
   - Ground Collision
-  - 
-  - 
+  - NPC
+  - Dialogue Zone
   - 
   - 
   - 

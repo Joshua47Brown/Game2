@@ -15,10 +15,14 @@ public class CameraController : MonoBehaviour
     public float cameraSpeed;
     public Vector3 offset;
     Vector3 targetPos;
+    bool running;
+
+    public Coroutine myco;
 
 
     void Start()
     {
+        StartCoroutine(ShakeCamera(0.025f,0.5f));
         targetPos = transform.position;
     }
 
@@ -54,6 +58,6 @@ public class CameraController : MonoBehaviour
     {
         shakeAmount = shakePower;
         shakeTimer = ShakeDur;
-        yield return null;
+        yield return running = false;
     }
 }
