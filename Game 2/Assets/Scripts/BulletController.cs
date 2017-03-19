@@ -79,7 +79,7 @@ public class BulletController : MonoBehaviour
             }
             else
             {
-                if (other.tag != "Ground Collision" && other.tag != "Checkpoint" && other.tag != "NPC")
+                if (other.tag != "Ground Collision" && other.tag != "Checkpoint" && other.tag != "NPC" && other.tag != "Player" && other.tag != "Bullet")
                 {
                     Debug.Log("oh my");
                     Instantiate(bulletParticle, gameObject.transform.position, gameObject.transform.rotation);

@@ -16,29 +16,24 @@ public class DialogueContainer : MonoBehaviour {
         dManager = FindObjectOfType<DialogueManager>();
     }
 
-
-    void Update()
-    {
-
-    }
-
     void OnTriggerStay2D(Collider2D other)
     {
         if (other.gameObject.name == "Player")
         {
-            if (Input.GetKeyUp(KeyCode.J))
+            if (Input.GetKeyUp(KeyCode.J) && dManager.canDialogueShow)
             {
-                //dManager.ShowBox(dialogue);
                 if (!dManager.dialogueActive)
                 {
                     dManager.dialogueLines = dialogueLines;
                     dManager.currentLine = 0;
                     dManager.ShowDialogue();
+                    dManager.canDialogueShow = false;
                 }
 
                 if (transform.parent.GetComponent<NpcBehaviour>() != null)
                 {
                     transform.parent.GetComponent<NpcBehaviour>().canMove = false;
+
                 }
 
             }

@@ -35,13 +35,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1981371877677400}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 4.4201345, y: 2.5329843, z: -10}
+  m_LocalRotation: {x: -0.7050756, y: -0.05355765, z: 0.05355765, w: 0.7050756}
+  m_LocalPosition: {x: 4.4201345, y: 2.5329843, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -81.312004, y: -90.00001, z: 90.00001}
 --- !u!114 &114805215764003124
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -108,12 +108,12 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 258911400
+  randomSeed: 1073612211
   InitialModule:
     serializedVersion: 3
     enabled: 1
     startLifetime:
-      scalar: 1
+      scalar: 0.6
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -152,7 +152,7 @@ ParticleSystem:
         m_RotationOrder: 4
       minMaxState: 0
     startSpeed:
-      scalar: 12
+      scalar: 15
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -284,7 +284,7 @@ ParticleSystem:
       maxColor: {r: 0.8, g: 0, b: 0, a: 1}
       minMaxState: 0
     startSize:
-      scalar: 0.4
+      scalar: 0.5
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -522,7 +522,7 @@ ParticleSystem:
     size3D: 0
     rotation3D: 0
     gravityModifier:
-      scalar: 2
+      scalar: 4
       maxCurve:
         serializedVersion: 2
         m_Curve:

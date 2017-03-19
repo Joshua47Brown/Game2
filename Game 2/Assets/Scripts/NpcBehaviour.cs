@@ -19,21 +19,28 @@ public class NpcBehaviour : MonoBehaviour
 
     public Transform wallDetector;
     public Transform groundDetector;
+    public Transform cameraTarget;
+    public Transform playerCamTarget;
     bool touchingWall;
     public LayerMask wallMask;
     public float radius;
     bool touchingGround;
+    Player player;
+
 
     public bool canMove;
     private DialogueManager theDM;
+    CameraController camCtrl;
+
 
 
     void Start()
     {
+        player = FindObjectOfType<Player>();
         theDM = FindObjectOfType<DialogueManager>();
         canMove = true;
         myRigidbody = GetComponent<Rigidbody2D>();
-
+        camCtrl = FindObjectOfType<CameraController>();
         waitCounter = waitTime;
         walkCounter = walkTime;
 
@@ -45,11 +52,13 @@ public class NpcBehaviour : MonoBehaviour
     {
         if (!theDM.dialogueActive)
         {
+            camCtrl.target = playerCamTarget.gameObject;
             canMove = true;
         }
 
         if (!canMove)
         {
+            camCtrl.target = cameraTarget.gameObject;
             myRigidbody.velocity = Vector2.zero;
             return;
         }

@@ -12,10 +12,11 @@ public class DialogueManager : MonoBehaviour
 
     public string[] dialogueLines;
     public int currentLine;
+    public bool canDialogueShow;
 
 	void Start()
     {
-        //InvokeRepeating("ExitDialogue", 0.1f, 60.0f);
+        canDialogueShow = true;
     }
 
 
@@ -24,30 +25,19 @@ public class DialogueManager : MonoBehaviour
         if (dialogueActive && Input.GetKeyDown(KeyCode.J))
         {
             currentLine++;
-            //dBox.SetActive(false);
-            //dialogueActive = false;
         }
         if (currentLine >= dialogueLines.Length)
         {
             dBox.SetActive(false);
             dialogueActive = false;
-
+            canDialogueShow = false;
+            StartCoroutine(DialogueDelay());
             currentLine = 0;
         }
 
         dText.text = dialogueLines[currentLine];
     }
 
-
-    //void ExitDialogue()
-    //{
-    //    if (dialogueActive && Input.GetKeyUp(KeyCode.J))
-    //    {
-    //        dBox.SetActive(false);
-    //        dialogueActive = false;
-    //        CancelInvoke("ExitDialogue");
-    //    }
-    //}
 
     public void ShowBox(string dialogue)
     {
@@ -60,5 +50,11 @@ public class DialogueManager : MonoBehaviour
     {
         dialogueActive = true;
         dBox.SetActive(true);
+    }
+
+    public IEnumerator DialogueDelay()
+    {
+        yield return new WaitForSeconds(1);
+        canDialogueShow = true;
     }
 }
