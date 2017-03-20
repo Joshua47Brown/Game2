@@ -43,7 +43,6 @@ public class NpcBehaviour : MonoBehaviour
         camCtrl = FindObjectOfType<CameraController>();
         waitCounter = waitTime;
         walkCounter = walkTime;
-
         ChooseDirection();
     }
 

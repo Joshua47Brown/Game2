@@ -13,11 +13,13 @@ public class FollowPlayer : MonoBehaviour
     public float speed;
     public Vector3 offset;
     Vector3 targetPos;
+    Player player;
 
 
 
     void Start()
     {
+        player = FindObjectOfType<Player>();
         targetPos = transform.position;
     }
 
