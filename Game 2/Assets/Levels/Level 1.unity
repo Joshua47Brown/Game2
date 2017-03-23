@@ -2428,6 +2428,10 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1368378412528090, guid: 5fe5cdce049bb4e45b954f26dc280b0a, type: 2}
       propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4638512016110548, guid: 5fe5cdce049bb4e45b954f26dc280b0a, type: 2}
+      propertyPath: m_LocalScale.x
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -2443,13 +2447,14 @@ GameObject:
   m_Component:
   - component: {fileID: 1542400094}
   - component: {fileID: 1542400095}
+  - component: {fileID: 1542400096}
   m_Layer: 0
   m_Name: Enemy Spawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1542400094
 Transform:
   m_ObjectHideFlags: 0
@@ -2478,6 +2483,41 @@ MonoBehaviour:
   enemy: {fileID: 1213653397058712, guid: ef291445d561f914f911d77f8d570fd3, type: 2}
   enemySpawnRate: 2
   enemySpawnRateTimer: 0
+--- !u!212 &1542400096
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1542400093}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 0
+  m_ReflectionProbeUsage: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300000, guid: edd2d27d3a5189b4b955e734ebe6dc5e, type: 3}
+  m_Color: {r: 0.6911765, g: 0.29984862, b: 0.29984862, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
 --- !u!1 &1619504291 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1455101886534284, guid: 466ab410b97701745b8e5ad2fb91c561,

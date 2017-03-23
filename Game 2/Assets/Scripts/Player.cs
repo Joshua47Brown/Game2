@@ -23,16 +23,19 @@ public class Player : MonoBehaviour
     public float bulletFireRate;
     public float firingShake;
     public float firingShakeLength;
+    public float bulletKick;
     public bool isFiring;
     public bool canMove;
 
     CameraController camCtrl;
     Controller2D controller;
     PauseMenu pauseMen;
+    Rigidbody2D rb2d;
 
 
     void Start()
     {
+        rb2d = GetComponent<Rigidbody2D>();
         controller = GetComponent<Controller2D>();
         camCtrl = FindObjectOfType<CameraController>();
         pauseMen = FindObjectOfType<PauseMenu>();
@@ -43,6 +46,7 @@ public class Player : MonoBehaviour
 
     void Update()
     {
+
         if (controller.collisions.above || controller.collisions.below)
         {
             velocity.y = 0;
@@ -60,6 +64,7 @@ public class Player : MonoBehaviour
             isFiring = true;
             Instantiate(bullet, firePoint.position, firePoint.rotation);
             bulletStart = Time.time;
+            rb2d.AddForce(new Vector2(bulletKick, 0));
             camCtrl.StartCoroutine(camCtrl.ShakeCamera(firingShake, firingShakeLength));
         }
 
@@ -71,10 +76,12 @@ public class Player : MonoBehaviour
         if (Input.GetAxisRaw("Horizontal") == 1 && isFiring == false) // Rotates player unless they're firing.
         {
             transform.localScale = new Vector3(1, 1, 1);
+            bulletKick = -1;
         }
         else if (Input.GetAxisRaw("Horizontal") == -1 && isFiring == false)
         {
             transform.localScale = new Vector3(-1, 1, 1);
+            bulletKick = 1;
         }
 
         float targetVelocityX = input.x * moveSpeed;
