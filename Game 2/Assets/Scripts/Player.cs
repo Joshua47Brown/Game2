@@ -23,7 +23,8 @@ public class Player : MonoBehaviour
     public float bulletFireRate;
     public float firingShake;
     public float firingShakeLength;
-    public float bulletKick;
+    private float bulletKick;
+    private float cameraKick;
     public bool isFiring;
     public bool canMove;
 
@@ -41,6 +42,8 @@ public class Player : MonoBehaviour
         pauseMen = FindObjectOfType<PauseMenu>();
         gravity = -(2 * jumpHeight) / Mathf.Pow(timeToJumpApex, 2);
         jumpVelocity = Mathf.Abs(gravity) * timeToJumpApex;
+        cameraKick = -0.1f;
+        bulletKick = -0.5f;
     }
 
 
@@ -56,15 +59,17 @@ public class Player : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space) && controller.collisions.below)
         {
+            Debug.Log("space pressed");
             velocity.y = jumpVelocity;
         }
 
-        if (Input.GetKey(KeyCode.Return) && Time.time > bulletStart + bulletFireRate && pauseMen.isPaused == false) //Shoots bullets
+        if (Input.GetKey(KeyCode.Return) && Time.time > bulletStart + bulletFireRate && pauseMen.isPaused == false) // Shoots bullets
         {
             isFiring = true;
             Instantiate(bullet, firePoint.position, firePoint.rotation);
             bulletStart = Time.time;
-            rb2d.AddForce(new Vector2(bulletKick, 0));
+            rb2d.AddForce(new Vector2(bulletKick, 0)); // causes issues with jumping when rigidbody is dynamic.
+            Camera.main.transform.Translate(new Vector3(cameraKick, 0, 0));
             camCtrl.StartCoroutine(camCtrl.ShakeCamera(firingShake, firingShakeLength));
         }
 
@@ -76,12 +81,14 @@ public class Player : MonoBehaviour
         if (Input.GetAxisRaw("Horizontal") == 1 && isFiring == false) // Rotates player unless they're firing.
         {
             transform.localScale = new Vector3(1, 1, 1);
-            bulletKick = -1;
+            bulletKick = -0.5f;
+            cameraKick = -0.1f;
         }
         else if (Input.GetAxisRaw("Horizontal") == -1 && isFiring == false)
         {
             transform.localScale = new Vector3(-1, 1, 1);
-            bulletKick = 1;
+            bulletKick = 0.5f;
+            cameraKick = 0.1f;
         }
 
         float targetVelocityX = input.x * moveSpeed;

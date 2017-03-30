@@ -40,6 +40,7 @@ public class CameraController : MonoBehaviour
 
     void Update()
     {
+        
         if (shakeTimer >= 0)
         {
             Vector2 ShakePos = Random.insideUnitCircle * shakeAmount;
